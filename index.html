@@ -17,3 +17,82 @@
 <img src="https://raw.githubusercontent.com/FidgetSpinnerio/FidgetSpinnerio/master/29076418.png">
 <body background="https://raw.githubusercontent.com/FidgetSpinnerio/FidgetSpinnerio/master/download.png" height="700" width="700">
 <font color=green">Fidget Spinner.io</font>
+var mouseX = 0;
+var mouseY = 0;
+ 
+canvas.addEventListener("mousemove", setMousePosition, false);
+ 
+function setMousePosition(e) {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+}       
+function setMousePosition(e) {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+}       
+function getPosition(el) {
+  var xPosition = 0;
+  var yPosition = 0;
+ 
+  while (el) {
+    xPosition += (el.offsetLeft - el.scrollLeft + el.clientLeft);
+    yPosition += (el.offsetTop - el.scrollTop + el.clientTop);
+    el = el.offsetParent;
+  }
+  return {
+    x: xPosition,
+    y: yPosition
+  };
+}       
+ var canvasPos = getPosition(canvas);
+var mouseX = 0;
+var mouseY = 0;
+ 
+canvas.addEventListener("mousemove", setMousePosition, false);
+ 
+function setMousePosition(e) {
+  mouseX = e.clientX - canvasPos.x;
+  mouseY = e.clientY - canvasPos.y;
+}
+function update() {
+  context.beginPath();
+  context.arc(100, 100, 50, 0, 2 * Math.PI, true);
+  context.fillStyle = "#FF6A6A";
+  context.fill();
+ 
+  requestAnimationFrame(update);
+}
+update();  
+function update() {
+  context.beginPath();
+  context.arc(mouseX, mouseY, 50, 0, 2 * Math.PI, true);
+  context.fillStyle = "#FF6A6A";
+  context.fill();
+ 
+  requestAnimationFrame(update);
+}
+update();
+ function update() {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+ 
+  context.beginPath();
+  context.arc(mouseX, mouseY, 50, 0, 2 * Math.PI, true);
+  context.fillStyle = "#FF6A6A";
+  context.fill();
+ 
+  requestAnimationFrame(update);
+}       
+anvas.addEventListener("mousemove", setMousePosition, false);
+ 
+function setMousePosition(e) {
+  mouseX = e.clientX - canvasPos.x;
+  mouseY = e.clientY - canvasPos.y;
+ 
+  context.clearRect(0, 0, canvas.width, canvas.height);
+ 
+  context.beginPath();
+  context.arc(mouseX, mouseY, 50, 0, 2 * Math.PI, true);
+  context.fillStyle = "#FF6A6A";
+  context.fill();
+}
+                               
